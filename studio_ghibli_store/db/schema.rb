@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191117211856) do
+ActiveRecord::Schema.define(version: 20191117232901) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "created_at", null: false
@@ -33,13 +33,17 @@ ActiveRecord::Schema.define(version: 20191117211856) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_roles_on_user_id", using: :btree
   end
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -53,18 +57,29 @@ ActiveRecord::Schema.define(version: 20191117211856) do
   end
 
   create_table "user_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
     t.string   "first_name",    limit: 50
     t.string   "last_name",     limit: 50
     t.string   "email",                    default: "", null: false
     t.string   "password",      limit: 40
-    t.integer  "mobile_number"
+    t.bigint   "mobile_number"
+    t.bigint   "phone_number"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.index ["user_id"], name: "index_user_details_on_user_id", using: :btree
   end
 
   create_table "user_registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "first_name",    limit: 50
+    t.string   "last_name",     limit: 50
+    t.string   "email",                    default: "", null: false
+    t.string   "password",      limit: 40
+    t.bigint   "mobile_number"
+    t.bigint   "phone_number"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["user_id"], name: "index_user_registrations_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
