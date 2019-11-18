@@ -6,7 +6,3 @@ class User < ApplicationRecord
     has_many :login
     has_many :orders
 end
-
-class UserDetail < ApplicationRecord
-    belongs_to :user
-end
