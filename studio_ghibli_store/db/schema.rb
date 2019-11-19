@@ -93,21 +93,6 @@ ActiveRecord::Schema.define(version: 20191118131029) do
     t.index ["stock_id"], name: "index_suppliers_on_stock_id", using: :btree
   end
 
-  create_table "user_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "user_id"
-    t.string   "first_name",         limit: 50
-    t.string   "last_name",          limit: 50
-    t.string   "display_name"
-    t.string   "email",                         default: "", null: false
-    t.string   "encrypted_password", limit: 40
-    t.bigint   "mobile_number"
-    t.bigint   "phone_number"
-    t.integer  "is_deleted",         limit: 2
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.index ["user_id"], name: "index_user_details_on_user_id", using: :btree
-  end
-
   create_table "user_registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.string   "first_name",    limit: 50
@@ -122,8 +107,16 @@ ActiveRecord::Schema.define(version: 20191118131029) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name",         limit: 50
+    t.string   "last_name",          limit: 50
+    t.string   "display_name"
+    t.string   "email",                         default: "", null: false
+    t.string   "encrypted_password", limit: 40
+    t.bigint   "mobile_number"
+    t.bigint   "phone_number"
+    t.integer  "is_deleted",         limit: 2
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
 end
