@@ -1,88 +1,32 @@
 Rails.application.routes.draw do
-  resources :roles, :except => [:delete,:destroy, :new]
+  #
+  # Users should be able to make changes to their address. Do we store historical versions of the address for a current order and destroy afterwards?
+  resources :addresses do
+    member do
+      get :delete
+    end
+  end
+  # Users have a choice of categories to filter by. The administrators should be able to create, update and delete these.
+  resources :catalog_categories
+  # Logins - This would show the login history for the user to the user or the administrator (perhaps the adminstrator searches by the user profile). They have no need to edit these details. This is view-only content.
+  resources :logins, only: [:show]
+   
+  # Users should be able to see the listed items in their order, add/remove items but only at the point before the payment has been made and not afterwards.
+  resources :order_items, :except => [:delete]
+   # Users need to be able to view the orders but don't necessarily need to edit or delete the orders. A status can be changed to 'Cancelled' after a button is clicked.
+  resources :orders, :except => [:edit,:delete]
+  # The user should have the ability to delete/destroy their account although we can keep other details like order history. Administrators should have the ability to create new administrators, and users can sign-up to the website (normal user role - created).
+  resources :roles
+  # Need admins to be able to create new stock and make any necessary changes
+  resources :stock
+  # The user registrations will allow non-users to create new user accounts. User registrations should not be editable/deleted.
+  resources :user_registrations, :except => [:edit,:delete]
+  # As mentioned above the users can delete/destroy their account. Non-identifiable data can be kept (orders).
   resources :users, :except => [:delete,:destroy]
-  
-  
 
-  get 'user_registrations/index'
 
-  get 'user_registrations/show'
+ 
 
-  get 'user_registrations/new'
-
-  get 'user_registrations/edit'
-
-  get 'user_registrations/delete'
-
-  get 'logins/index'
-
-  get 'logins/show'
-
-  get 'logins/new'
-
-  get 'logins/edit'
-
-  get 'logins/delete'
-
-  get 'addresses/index'
-
-  get 'addresses/show'
-
-  get 'addresses/new'
-
-  get 'addresses/edit'
-
-  get 'addresses/delete'
-
-  get 'stock/index'
-
-  get 'stock/show'
-
-  get 'stock/new'
-
-  get 'stock/edit'
-
-  get 'stock/delete'
-
-  get 'order_items/index'
-
-  get 'order_items/show'
-
-  get 'order_items/new'
-
-  get 'order_items/edit'
-
-  get 'order_items/delete'
-
-  get 'orders/index'
-
-  get 'orders/show'
-
-  get 'orders/new'
-
-  get 'orders/edit'
-
-  get 'orders/delete'
-
-  get 'catalog_categories/index'
-
-  get 'catalog_categories/show'
-
-  get 'catalog_categories/new'
-
-  get 'catalog_categories/edit'
-
-  get 'catalog_categories/delete'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/edit'
-
-  get 'users/delete'
 
   get 'demo/index'
   get ':controller(/:action)'
