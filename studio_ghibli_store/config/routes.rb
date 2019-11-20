@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  get 'roles/index'
-
-  get 'roles/show'
-
-  get 'roles/new'
-
-  get 'roles/edit'
-
-  get 'roles/delete'
+  resources :roles, :except => [:delete,:destroy, :new]
+  resources :users, :except => [:delete,:destroy]
+  
+  
 
   get 'user_registrations/index'
 
