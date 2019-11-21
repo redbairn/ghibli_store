@@ -3,5 +3,5 @@ class User < ApplicationRecord
     has_one :role
     has_one :address
     has_many :login
-    has_many :orders
+    has_many :order
 end
