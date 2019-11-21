@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   resources :orders, :except => [:edit,:delete]
   # The user should have the ability to delete/destroy their account although we can keep other details like order history. Administrators should have the ability to create new administrators, and users can sign-up to the website (normal user role - created).
   resources :roles
-  # Need admins to be able to create new stock and make any necessary changes
-  resources :stock
+  # Need admins to be able to create new products and make any necessary changes like the name and prices
+  resources :products
   # The user registrations will allow non-users to create new user accounts. User registrations should not be editable/deleted.
   resources :user_registrations, :except => [:edit,:delete]
   # As mentioned above the users can delete/destroy their account. Non-identifiable data can be kept (orders).

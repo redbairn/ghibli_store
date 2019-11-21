@@ -10,3 +10,7 @@
 #User
 u1 = User.create(:first_name => 'John', :last_name => "Smith", :email => 'redbairn@gmail.com', :encrypted_password => 'userPW1', :mobile_number => '0861234567', :is_deleted => 0)
 u1.save
+
+#Product
+p1 = Product.create(:title => 'John', :cost_price => 30.99)
+p1.save
