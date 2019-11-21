@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    belongs_to :order_item
+    has_one :order_item
     has_one :supplier
-    has_one :catalog_category
+    belongs_to :catalog_category
 end

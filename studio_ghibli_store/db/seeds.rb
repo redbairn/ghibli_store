@@ -11,6 +11,10 @@
 u1 = User.create(:first_name => 'John', :last_name => "Smith", :email => 'redbairn@gmail.com', :encrypted_password => 'userPW1', :mobile_number => '0861234567', :is_deleted => 0)
 u1.save
 
+#Order
+
+#Order_Items
+
 #Product
-p1 = Product.create(:title => 'John', :cost_price => 30.99)
+p1 = Product.create(:title => 'Key Chain No Face Man', :cost_price => 3.99)
 p1.save
