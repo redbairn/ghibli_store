@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20191121074910) do
 
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "addressLine1", limit: 50
     t.string   "addressLine2", limit: 50
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
-  create_table "catalog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "catalog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",      limit: 50
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
-  create_table "logins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "logins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "logged_in",         limit: 1
     t.string   "ip_address"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.index ["user_id"], name: "index_logins_on_user_id", using: :btree
   end
 
-  create_table "order_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "order_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "order_id"
     t.integer  "product_id"
     t.bigint   "qty"
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
   end
 
-  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "catalog_categories_id"
     t.integer  "supplier_id"
     t.string   "title",                 limit: 50
@@ -72,13 +72,13 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",      limit: 50
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
-  create_table "suppliers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "suppliers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "supplier_name", limit: 50
     t.string   "addressLine1",  limit: 50
     t.string   "addressLine2",  limit: 50
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.datetime "updated_at",                            null: false
   end
 
-  create_table "user_registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "user_registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "first_name",    limit: 50
     t.string   "last_name",     limit: 50
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.index ["user_id"], name: "index_user_registrations_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "role_id"
     t.string   "first_name",         limit: 50
     t.string   "last_name",          limit: 50
