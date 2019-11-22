@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[5.0]
   def up
     create_table :users do |t|
+      t.integer "role_id"
       t.string "first_name", :limit => 50
       t.string "last_name", :limit => 50
       t.string "display_name", :limit => 255
@@ -11,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer "is_deleted", :limit => 2
       t.timestamps
     end
+     add_index :users, :role_id
   end
   
   def down

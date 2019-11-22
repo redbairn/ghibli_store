@@ -25,11 +25,9 @@ ActiveRecord::Schema.define(version: 20191121074910) do
   end
 
   create_table "catalog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "stock_id"
     t.string   "title",      limit: 50
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.index ["stock_id"], name: "index_catalog_categories_on_stock_id", using: :btree
   end
 
   create_table "logins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -46,13 +44,13 @@ ActiveRecord::Schema.define(version: 20191121074910) do
 
   create_table "order_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "order_id"
-    t.string   "name",       limit: 50
-    t.string   "sku",        limit: 50
-    t.bigint   "qty_sold"
-    t.decimal  "sale_price",            precision: 8, scale: 2
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.integer  "product_id"
+    t.bigint   "qty"
+    t.decimal  "sale_price", precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -63,33 +61,24 @@ ActiveRecord::Schema.define(version: 20191121074910) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "order_items_id"
-    t.string   "title",          limit: 50
-    t.decimal  "cost_price",                precision: 8, scale: 2
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.index ["order_items_id"], name: "index_products_on_order_items_id", using: :btree
+    t.integer  "catalog_categories_id"
+    t.integer  "supplier_id"
+    t.string   "title",                 limit: 50
+    t.string   "colour",                limit: 20
+    t.decimal  "cost_price",                       precision: 8, scale: 2
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.index ["catalog_categories_id"], name: "index_products_on_catalog_categories_id", using: :btree
+    t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title",      limit: 50
-    t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.index ["user_id"], name: "index_roles_on_user_id", using: :btree
-  end
-
-  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "order_items_id"
-    t.string   "title",          limit: 50
-    t.decimal  "cost_price",                precision: 8, scale: 2
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.index ["order_items_id"], name: "index_stocks_on_order_items_id", using: :btree
   end
 
   create_table "suppliers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "stock_id"
     t.string   "supplier_name", limit: 50
     t.string   "addressLine1",  limit: 50
     t.string   "addressLine2",  limit: 50
@@ -99,7 +88,6 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.integer  "is_deleted",    limit: 2
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.index ["stock_id"], name: "index_suppliers_on_stock_id", using: :btree
   end
 
   create_table "user_registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -116,6 +104,7 @@ ActiveRecord::Schema.define(version: 20191121074910) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "role_id"
     t.string   "first_name",         limit: 50
     t.string   "last_name",          limit: 50
     t.string   "display_name"
@@ -126,6 +115,7 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.integer  "is_deleted",         limit: 2
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
 end
