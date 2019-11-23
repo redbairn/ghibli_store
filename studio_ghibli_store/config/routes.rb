@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   # The static pages:
   get '/home' => 'static_pages#home'
-  get '/shop' => 'static_pages#shop'
+  get '/product' => 'products#index'
   get '/about' => 'static_pages#about'
   get '/help' => 'static_pages#help' 
   get '/account' => 'static_pages#account'  
