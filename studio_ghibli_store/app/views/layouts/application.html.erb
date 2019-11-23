@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StudioGhibliStore</title>
+    <title><%= yield(:title) %> | Studio Ghibli Store</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="headSec">
+      <h1>Studio Ghibli European Store</h1>
+      <ul>
+        <li><%=link_to "Home", home_path %></li>
+        <li><%=link_to "Shop", shop_path %></li>
+        <li><%=link_to "About", about_path %></li>
+        <li><%=link_to "Help", help_path %></li>
+        <li><%=link_to "Contact", contact_path %></li>
+        <li><%=link_to "Account", account_path %></li>
+        <li><%=link_to "Login", login_path %></li>
+        <li><%=link_to "Cart", cart_path %></li>
+      </ul>
+    </header>
+    
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer class="foot">
+      <h1>Im the Footer</h1>
+    </footer>
   </body>
 </html>

@@ -4,8 +4,10 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer "catalog_categories_id"
       t.integer "supplier_id"
       t.string "title", :limit => 50
+      t.text "description"
       t.string "colour", :limit => 20
       t.decimal "cost_price", :precision => 8, :scale => 2
+      t.string "image_url"
       t.timestamps
     end
     add_index :products, :catalog_categories_id

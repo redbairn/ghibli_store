@@ -13,3 +13,66 @@
  *= require_tree .
  *= require_self
  */
+body{
+    margin:0;
+    padding:0;
+}
+
+.headSec {
+    background: url("/assets/Site/golfcourse.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    min-height:10px;
+    background-color: #b3e0ff;
+    width: 100%;
+    margin-bottom:10px;
+    overflow: auto;
+}
+.headSec h1 {
+    color: #ffffff;
+    font-size: 80px;
+    padding: 15px;
+    text-align: center;
+}
+.headSec ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+}
+.headSec li {
+    float:left;
+    
+}
+.headSec li a {
+     display: block;
+     color: #ffffff;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+}
+.mainCont {
+     margin: auto;
+     width:80%;
+     text-align: center;
+}
+.welcomeIm {
+    width: 80%;
+}
+.foot {
+     min-height: 80px;
+     background-color: #b3e0ff;
+     width: 100%;
+     margin-top: 10px;
+     overflow: auto;
+}
+.container {
+    background: url("/assets/Site/totoro-studio-ghibli.png"), url("/assets/Site/spirited-away-studio-ghibli.png");
+   background-size:400px, 400px;
+    background-repeat:no-repeat, no-repeat;
+    background-position:left bottom, right bottom;
+    width: 100%;
+    min-height: 700px;
+}

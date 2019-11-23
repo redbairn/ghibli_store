@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  # Set the homepage as the static home view
+  root 'static_pages#home'
+  # The static pages:
+  get '/home' => 'static_pages#home'
+  get '/shop' => 'static_pages#shop'
+  get '/about' => 'static_pages#about'
+  get '/help' => 'static_pages#help' 
+  get '/account' => 'static_pages#account'  
+  get '/login' => 'static_pages#login' 
+  get '/contact' => 'static_pages#contact'  
+  get '/cart' => 'static_pages#cart'
   #
   # Users should be able to make changes to their address. Do we store historical versions of the address for a current order and destroy afterwards?
   resources :addresses do

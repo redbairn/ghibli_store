@@ -64,10 +64,12 @@ ActiveRecord::Schema.define(version: 20191121074910) do
     t.integer  "catalog_categories_id"
     t.integer  "supplier_id"
     t.string   "title",                 limit: 50
+    t.text     "description",           limit: 65535
     t.string   "colour",                limit: 20
-    t.decimal  "cost_price",                       precision: 8, scale: 2
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.decimal  "cost_price",                          precision: 8, scale: 2
+    t.string   "image_url"
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
     t.index ["catalog_categories_id"], name: "index_products_on_catalog_categories_id", using: :btree
     t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
   end
