@@ -27,6 +27,17 @@
     <%= @product.image_url %>
   </p>
   
+  <p>
+    <strong>Category:</strong>
+    <%= @product.catalog_categories_id %>
+  </p>
+  
+  <p>
+    <strong>SupplierId:</strong>
+    <%= @product.supplier_id %>
+  </p>
+  
+  
   <%= link_to 'Edit', edit_product_path(@product) %> |
   <%= link_to 'Back', products_path %>
 

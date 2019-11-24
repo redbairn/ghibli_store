@@ -69,6 +69,6 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :image_url, :category, :brand)
+      params.require(:product).permit(:title, :description, :colour, :cost_price, :image_url, :catalog_categories_id, :supplier_id)
     end
 end

@@ -40,7 +40,7 @@ ur1.save
 #Order
 #Order_Items
 #Product
-p1 = Product.create(:title => 'Key Chain No Face Man', :description => 'No Face Keychain is made from high-quality materials and allows you to keep your keys handy around your wrist. Leaving your hands free to do other things. This is the perfect keychain for fans of Spirited Away.', :colour => 'black', :cost_price => 3.99, :image_url => 'product-image-keychain-noface.jpg', :catalog_categories_id => 1)
+p1 = Product.create(:title => 'Key Chain No Face Man', :description => 'No Face Keychain is made from high-quality materials and allows you to keep your keys handy around your wrist. Leaving your hands free to do other things. This is the perfect keychain for fans of Spirited Away.', :colour => 'black', :cost_price => 3.99, :image_url => 'product-image-keychain-noface.jpg', :catalog_categories_id => 1, :supplier_id => 1)
 p1.save
 
 #Roles
@@ -50,3 +50,7 @@ p2 = Role.create(:title => 'Admin')
 p2.save
 p3 = Role.create(:title => 'Normal User')
 p3.save
+
+#Suppliers
+s1 = Supplier.create(:supplier_name => 'Tamaki Niime Co., Ltd', :addressLine1 => 'Nishiwaki-shi', :addressLine2 => 'Hyogo', :addressLine3 =>'Japan', :phone_number => 1123456789, :email => 'info@tamakiniime.com', :is_deleted => 0)
+s1.save
