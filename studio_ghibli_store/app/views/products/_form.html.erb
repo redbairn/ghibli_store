@@ -1,5 +1,5 @@
 
-  <%= form_for(product) do |f| %>
+<%= form_with(model: product, local: true) do |form| %>
     <% if product.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -13,42 +13,42 @@
     <% end %>
   
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :product_title, :type =>"text" %>
     </div>
   
     <div class="field">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :product_description, :type =>"text" %>
     </div>
     
     <div class="field">
-      <%= f.label :colour %>
-      <%= f.text_area :colour %>
+      <%= form.label :colour %>
+      <%= form.text_area :colour, id: :product_colour, :type =>"text" %>
     </div>
   
     <div class="field">
-      <%= f.label :cost_price %>
-      <%= f.text_field :cost_price %>
+      <%= form.label :cost_price %>
+      <%= form.text_field :cost_price, id: :product_price, :type =>"text" %>
     </div>
   
     <div class="field">
-      <%= f.label :image_url %>
-      <%= f.text_field :image_url %>
+      <%= form.label :image_url %>
+      <%= form.text_field  :image_url, id: :product_image_url %>
     </div>
     
     <div class="field">
-      <%= f.label :catalog_categories_id %>
-      <%= f.text_field :catalog_categories_id %>
+      <%= form.label :catalog_categories_id %>
+      <%= form.text_field :catalog_categories_id, id: :product_catalog_categories_id, :type =>"text" %>
     </div>
     
     <div class="field">
-      <%= f.label :supplier_id %>
-      <%= f.text_field :supplier_id %>
+      <%= form.label :supplier_id %>
+      <%= form.text_field :supplier_id, id: :product_supplier_id, :type =>"text" %>
     </div>
   
     <div class="actions">
-      <%= f.submit %>
+      <%= form.submit %>
     </div>
   <% end %>
 

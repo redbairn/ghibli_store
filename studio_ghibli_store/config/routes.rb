@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # Set the homepage as the static home view
+    # Set the homepage as the static home view
   root 'static_pages#home'
   # The static pages:
   get '/home' => 'static_pages#home'
@@ -40,11 +40,8 @@ Rails.application.routes.draw do
   resources :users, :except => [:delete,:destroy]
 
 
-
-
-  get 'demo/index'
   get ':controller(/:action)'
-  root 'demo#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
