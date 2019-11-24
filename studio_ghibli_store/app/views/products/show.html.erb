@@ -1,45 +1,26 @@
 <div class="mainCont">
 
   <p id="notice"><%= notice %></p>
-  
-  <p>
-    <strong>Title:</strong>
-    <%= @product.title %>
-  </p>
-  
-  <p>
-    <strong>Description:</strong>
-    <%= @product.description %>
-  </p>
-  
-  <p>
-    <strong>Colour:</strong>
-    <%= @product.colour %>
-  </p>
-  
-  <p>
-    <strong>Price:</strong>
-    <%= @product.cost_price %>
-  </p>
-  
-  <p>
-    <strong>Image url:</strong>
-    <%= @product.image_url %>
-  </p>
-  
-  <p>
-    <strong>Category:</strong>
-    <%= @product.catalog_categories_id %>
-  </p>
-  
-  <p>
-    <strong>SupplierId:</strong>
-    <%= @product.supplier_id %>
-  </p>
-  
-  
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
-
-</div>
+  <div id="productsContainer">
+    <h1><%= @product.title %></h1>
+    <%= image_tag @product.image_url, :class => 'welcomIm' %>
+    <h2><%= @product.description %></h1>
+    
+    <div class="producthols">
+      <p>Price <%= number_to_currency(@product.price, :unit => "€") %>
+      <br />
+      Colour: <%= product.colour %>
+      <br>
+      CategoryID: <%= product.catalog_categories_id %>
+      <br>
+      SupplierID: <%= product.supplier_id %></p>
+      
+      <p>
+      <%= link_to 'Back', products_path, :class => "button", :role => "button" %>
+      <%= link_to 'Edit', edit_product_path(@product), :class => "button", :role => "button" %>
+      
+      </p>
+    </div><!-- End of producthols -->
+   </div><!-- End of productsContainer -->
+</div><!-- End of mainCont -->
 

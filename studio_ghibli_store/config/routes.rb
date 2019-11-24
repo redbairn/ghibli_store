@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/login' => 'static_pages#login' 
   get '/contact' => 'static_pages#contact'  
   get '/cart' => 'static_pages#cart'
+  # User Logins
+  get '/login', to: 'user_login#login'
+  get '/logout', to: 'user_login#logout'
+  
   #
   # Users should be able to make changes to their address. Do we store historical versions of the address for a current order and destroy afterwards?
   resources :addresses do
@@ -36,7 +40,6 @@ Rails.application.routes.draw do
   resources :users, :except => [:delete,:destroy]
 
 
- 
 
 
   get 'demo/index'
