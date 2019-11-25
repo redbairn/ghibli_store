@@ -7,7 +7,7 @@
     <h2><%= @product.description %></h1>
     
     <div class="producthols">
-      <p>Price <%= number_to_currency(@product.price, :unit => "€") %>
+      <p>Price <%= number_to_currency(@product.cost_price, :unit => "€") %>
       <br />
       Colour: <%= product.colour %>
       <br>
@@ -16,8 +16,9 @@
       SupplierID: <%= product.supplier_id %></p>
       
       <p>
-      <%= link_to 'Back', products_path, :class => "button", :role => "button" %>
       <%= link_to 'Edit', edit_product_path(@product), :class => "button", :role => "button" %>
+      <%= link_to 'Back', products_path, :class => "button", :role => "button" %>
+    
       
       </p>
     </div><!-- End of producthols -->

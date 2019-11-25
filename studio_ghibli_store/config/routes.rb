@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # Logins - This would show the login history for the user to the user or the administrator (perhaps the adminstrator searches by the user profile). They have no need to edit these details. This is view-only content.
   resources :logins, only: [:show]
    
-  # Users should be able to see the listed items in their order, add/remove items but only at the point before the payment has been made and not afterwards.
+  # Users should be able to see the listed items in their order, add/remove items but only at the point before the payment has been made and not afterwards
   resources :order_items, :except => [:delete]
    # Users need to be able to view the orders but don't necessarily need to edit or delete the orders. A status can be changed to 'Cancelled' after a button is clicked.
   resources :orders, :except => [:edit,:delete]
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   resources :users, :except => [:delete,:destroy]
 
 
-  get ':controller(/:action)'
+  #get ':controller(/:action)'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

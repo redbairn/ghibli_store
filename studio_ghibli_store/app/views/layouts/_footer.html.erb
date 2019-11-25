@@ -1,0 +1,6 @@
+<footer class="foot">
+    <h1>Im the Footer</h1>
+    <% if session[:login] == 1 %>
+      <%= link_to 'New Product', new_product_path, :class =>"button", :role=>"button" %>
+    <% end %>
+</footer>
