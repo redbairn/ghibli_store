@@ -119,3 +119,21 @@ ul {
 }
 
 
+/* (1920x1080) Full HD Display */
+@media  screen and (max-width: 1920px) {
+    form{
+        width:60%;
+        margin-left:20%;
+    }
+    .headSec h1 {
+        font-size: 32px;
+        padding: 15px;
+    }
+    .welcomeIm {
+        width: 60%;
+    }
+    .container {
+       background-size:200px, 200px;
+       min-height:500px;
+    }
+}
