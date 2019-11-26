@@ -39,9 +39,5 @@ Rails.application.routes.draw do
   # As mentioned above the users can delete/destroy their account. Non-identifiable data can be kept (orders).
   resources :users, :except => [:delete,:destroy]
 
-
-  #get ':controller(/:action)'
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,7 +3,12 @@
   <div id="productsContainer">
     <h1>Products</h1>
     
-        <% @products.each do |product| %>
+        <% # This is a loop going through all the products on the Products table. 
+           # This is the main page of the Products
+           # Below we output the values from each column for each record. 
+          
+        
+        @products.each do |product| %>
         <div class="producthols">
             <h1><%= product.title %></h1>
             
@@ -24,6 +29,9 @@
      
   </div><!-- End of productContainer -->
 
+     <br />
+  <%= link_to 'New product', new_product_path %>
+  <br />
 
 
 </div>
