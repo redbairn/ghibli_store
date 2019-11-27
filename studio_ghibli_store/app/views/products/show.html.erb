@@ -4,7 +4,7 @@
   <div id="productsContainer">
     <h1><%= @product.title %></h1>
     <%= 
-      # I am not sure what page this document refers to...Need to amend it to see...
+      # I am not sure what page this document refers to...Need to amend it to see..
     
     image_tag @product.image_url, :class => 'welcomIm' %>
     <h2><%= @product.description %></h1>
@@ -12,7 +12,7 @@
     <div class="producthols">
       <p>Price <%= number_to_currency(@product.cost_price, :unit => "€") %>
       <br />
-      Colour:
+      Colour: <%= product.colour %>
       <br>
       CategoryID: <%= product.catalog_categories_id %>
       <br>
