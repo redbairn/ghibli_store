@@ -6,6 +6,7 @@
     <%= 
       # This document doesn't appear to render the one product like it should do.
       # After removing it form the views/products directory - there were no issues with the app.
+      # It appears that this page will not show because of our little dot-not-slash issue
     
     image_tag @product.image_url, :class => 'welcomIm' %>
     <h2><%= @product.description %></h1>
