@@ -18,37 +18,37 @@ form_for(product) do |form| %>
   
     <div class="field">
       <%= form.label :title %>
-      <%= form.text_field :title, id: :product_title, :type =>"text" %>
+      <%= form.text_field :title, id: :product_title, :type =>"text", :required => 'required' %>
     </div>
   
     <div class="field">
       <%= form.label :description %>
-      <%= form.text_area :description, id: :product_description, :type =>"text" %>
+      <%= form.text_area :description, id: :product_description, :type =>"text", :required => 'required' %>
     </div>
     
     <div class="field">
       <%= form.label :colour %>
-      <%= form.text_area :colour, id: :product_colour, :type =>"text" %>
+      <%= form.text_area :colour, id: :product_colour, :type =>"text", :required => 'required' %>
     </div>
   
     <div class="field">
       <%= form.label :cost_price %>
-      <%= form.text_field :cost_price, id: :product_price, :type =>"text" %>
+      <%= form.text_field :cost_price, id: :product_price, :type =>"text", :required => 'required' %>
     </div>
   
     <div class="field">
       <%= form.label :image_url %>
-      <%= form.text_field  :image_url, id: :product_image_url %>
+      <%= form.text_field  :image_url, id: :product_image_url, :required => 'required' %>
     </div>
     
     <div class="field">
       <%= form.label :catalog_categories_id %>
-      <%= form.text_field :catalog_categories_id, id: :product_catalog_categories_id, :type =>"text" %>
+      <%= form.text_field :catalog_categories_id, id: :product_catalog_categories_id, :type =>"text", :required => 'required' %>
     </div>
     
     <div class="field">
       <%= form.label :supplier_id %>
-      <%= form.text_field :supplier_id, id: :product_supplier_id, :type =>"text" %>
+      <%= form.text_field :supplier_id, id: :product_supplier_id, :type =>"text", :required => 'required' %>
     </div>
   
     <div class="actions">
