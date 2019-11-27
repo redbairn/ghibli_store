@@ -4,7 +4,8 @@
   <div id="productsContainer">
     <h1><%= @product.title %></h1>
     <%= 
-      # I am not sure what page this document refers to...Need to amend it to see..
+      # This document doesn't appear to render the one product like it should do.
+      # After removing it form the views/products directory - there were no issues with the app.
     
     image_tag @product.image_url, :class => 'welcomIm' %>
     <h2><%= @product.description %></h1>
