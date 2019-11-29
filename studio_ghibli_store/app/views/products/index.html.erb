@@ -21,20 +21,17 @@
            CategoryID: <%= product.catalog_categories_id %>
           <br />
            SupplierID: <%= product.supplier_id %></p>
-            <%= 
-            # I think this is where our issue lies, because it will try product.1 (first product in the list). It should be /products/1
-            
-            link_to 'Show', product, :class => "button", :role => "button" %>
-            <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
-            <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
-                
-
+           <p>
+               <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
+                <%= link_to 'Show', product, :class => "button", :role => "button" %>
+                <% if session[:login] == 1 %> 
+                    <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
+                    <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+                    <%= link_to 'New Product', new_product_path, :class =>"button", :role=>"button" %>
+                <% end %>
+            </p>
         </div><!--End of producthols-->
         <% end %>
      
   </div><!-- End of productContainer -->
-    <br />
-    <%= link_to 'New Product', new_product_path, :class =>"button", :role=>"button" %>
-    <br />
-
 </div>

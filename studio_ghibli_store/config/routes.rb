@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :orders, :except => [:edit,:delete]
     resources :roles
     resources :products
-
+    get '/product/:id', to: 'products#index'
 
     resources :user_registrations, :except => [:edit,:delete]
     resources :users, :except => [:delete,:destroy]
