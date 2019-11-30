@@ -1,13 +1,9 @@
-<div class="mainCont">
+<h1>New Product</h1>
 
-    <h1>New Product</h1>
-    
-    <%= 
-    # This main page where the form is rendered and we can create the new products.
-    
-    render 'form', product: @product %>
-    
-    <%= link_to 'Back', products_path %>
+<%= render 'form', product: @product %>
 
-</div>
+<%= link_to 'Back', products_path, :class =>"button", :role=>"button" %>
+
+
+
 

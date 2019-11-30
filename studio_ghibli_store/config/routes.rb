@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     get '/account' => 'static_pages#account'  
     get '/login' => 'static_pages#login' 
     get '/contact' => 'static_pages#contact'  
-    get '/cart' => 'static_pages#cart'
     get '/login' => 'user#login' 
     get '/logout' => 'user#logout'
   
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
     resources :catalog_categories
     get '/cart' => 'cart#index'
     get '/cart/clear' => 'cart#clear'
+    get '/cart/:id', to: 'cart#add'
     get '/cart/remove/:id' => 'cart#remove'
     get '/cart/reduce/:id' => 'cart#reduce'
     get '/cart/increase/:id' => 'cart#increase'
