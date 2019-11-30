@@ -6,7 +6,6 @@ class CartController < ApplicationController
         id = params[:id]
         
         # if the cart exists use it, or if not make a new cart.
-        
         if session[:cart] then
           cart = session[:cart]
         else
@@ -42,7 +41,7 @@ class CartController < ApplicationController
   def reduce
     id = params[:id]
     cart = session[:cart]
-   cart[id] = cart[id] - 1
+    cart[id] = cart[id] - 1
     
     redirect_to :action => :index
   end
@@ -70,14 +69,14 @@ class CartController < ApplicationController
   
   def createOrder
     
-   # @orderNo = Order.find(params[:id])
+   @orderNo = Order.find(params[:id])
     
     
    # Step 1: Get the current user
-   @user = User.find(current_user.id)
+   @user_login = User_Login.find(current_user.id)
   
    # Step 2: Create a new order and associate it with the current user
-   @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
+   @order = @user_login.orders.build(:order_date => DateTime.now, :status => 'Pending')
    @order.save
   
    # Step 3: For each item in the cart, create a new item on the order!!

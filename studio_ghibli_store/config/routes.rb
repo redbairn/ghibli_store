@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :catalog_categories
     get '/cart' => 'cart#index'
     get '/cart/clear' => 'cart#clear'
-    get '/cart/:id', to: 'cart#add'
+    get '/cart/:id' => 'cart#add'
     get '/cart/remove/:id' => 'cart#remove'
     get '/cart/reduce/:id' => 'cart#reduce'
     get '/cart/increase/:id' => 'cart#increase'
