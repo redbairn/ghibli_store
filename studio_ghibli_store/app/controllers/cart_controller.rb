@@ -41,7 +41,7 @@ class CartController < ApplicationController
   def reduce
     id = params[:id]
     cart = session[:cart]
-    if cart[id] == 1 then
+    if cart[id] == 1 then # If we go below 1 remove the item instead of showing it with 0 or a minus quantity
       cart.delete id
       redirect_to :action => :index
     else
