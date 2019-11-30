@@ -6,8 +6,19 @@
 <div id="productsContainer">
     <table id="customers">
         <% total = 0 %>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Remove</th>
+            <th>Increase</th>
+            <th>Decrease</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Item</th>
+        </tr>
         <% @cart.each do |id, quantity| %> 
             <% product = Product.find_by_id(id) %>
+
          
              <tr>
                  <td>
@@ -20,16 +31,16 @@
                      <%= link_to product.title, product %>
                  </td>
                  
-                 <td class="title">
-                  <a href="/cart/remove/<%= product.id %>">Remove From Cart</a>   
+                 <td class="title remove">
+                  <a href="/cart/remove/<%= product.id %>">X</a>   
                 </td>
                 
-                <td>
-                    <a href="cart/increase/<%= product.id %>" >Increase products<i class='fas fa-arrow-alt-circle-down'></i></a></td>
+                <td class="amounts">
+                    <a href="cart/increase/<%= product.id %>" ><i class='fas fas fa-arrow-alt-circle-up fa-3x'></i></a></td>
                 </td>
                 
-                <td>
-                    <a href="cart/reduce/<%= product.id %>" >Reduce products<i class='fas fa-arrow-alt-circle-down'></i></a></td>
+                <td class="amounts">
+                    <a href="cart/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down fa-3x'></i></a></td>
                 </td>
               
               
@@ -39,7 +50,7 @@
                 
                 <td class="quantity"><%= quantity %></td>
                 
-                <td ="price"><%= number_to_currency(quantity * product.cost_price, :unit =>"€") %></td>
+                <td class="price"><%= number_to_currency(quantity * product.cost_price, :unit =>"€") %></td>
                  
              </tr>
          

@@ -13,7 +13,7 @@ class CartController < ApplicationController
           cart = session[:cart]
         end  
         
-        # check if ite is there and if so increment the quantity by 1
+        # check if it is there and if so increment the quantity by 1
         # if the item is not there then set the quantity to be 1
         
         if cart[id] then
@@ -41,9 +41,15 @@ class CartController < ApplicationController
   def reduce
     id = params[:id]
     cart = session[:cart]
-    cart[id] = cart[id] - 1
+    if cart[id] == 1 then
+      cart.delete id
+      redirect_to :action => :index
+    else
+      cart[id] = cart[id] - 1
+      redirect_to :action => :index
+    end
     
-    redirect_to :action => :index
+
   end
   
   
@@ -58,7 +64,6 @@ class CartController < ApplicationController
   
   def index
     # pass the cart to be displayed
-    
     if session[:cart] then
       @cart = session[:cart]
     else
@@ -90,7 +95,7 @@ class CartController < ApplicationController
    @orders = Order.all
    @orderitems = Orderitem.where(order_id: Order.last)
    
-   # session[:cart] = nil # Hidden for development so I can refresh the page
+   session[:cart] = nil # Hidden for development so I can refresh the page
    
   end
   
