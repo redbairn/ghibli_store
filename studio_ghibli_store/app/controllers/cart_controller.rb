@@ -64,12 +64,11 @@ class CartController < ApplicationController
   
   def index
     # pass the cart to be displayed
-    if session[:cart] then
+    if session[:cart]  then
       @cart = session[:cart]
     else
       @cart = {}
     end
-    
   end
   
   def createOrder
