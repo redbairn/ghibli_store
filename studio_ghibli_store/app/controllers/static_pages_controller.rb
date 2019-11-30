@@ -13,9 +13,6 @@ class StaticPagesController < ApplicationController
 
   def account
   end
-  
-  def login
-  end
 
   def contact
   end

@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     get '/about' => 'static_pages#about'
     get '/help' => 'static_pages#help' 
     get '/account' => 'static_pages#account'  
-    get '/login' => 'static_pages#login' 
     get '/contact' => 'static_pages#contact'  
-    get '/login' => 'user#login' 
-    get '/logout' => 'user#logout'
+    get '/login' => 'user_login#login' 
+    get '/logout' => 'user_login#logout'
   
 
     resources :addresses do
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
     resources :roles
     resources :products
     get '/product/:id', to: 'products#index'
-
+    resources :user_logins
     resources :user_registrations, :except => [:edit,:delete]
     resources :users, :except => [:delete,:destroy]
 end

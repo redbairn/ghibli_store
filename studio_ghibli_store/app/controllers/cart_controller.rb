@@ -69,7 +69,7 @@ class CartController < ApplicationController
   
   def createOrder
     
-   @orderNo = Order.find(params[:id])
+   #@orderNo = Order.find(params[:id])
     
     
    # Step 1: Get the current user
