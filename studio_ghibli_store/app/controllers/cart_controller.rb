@@ -77,10 +77,10 @@ class CartController < ApplicationController
     
     
    # Step 1: Get the current user
-   @user_login = User_Login.find(current_user.id)
+   @user = User.find(current_user.id)
   
    # Step 2: Create a new order and associate it with the current user
-   @order = @user_login.orders.build(:order_date => DateTime.now, :status => 'Pending')
+   @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
    @order.save
   
    # Step 3: For each item in the cart, create a new item on the order!!
@@ -90,6 +90,8 @@ class CartController < ApplicationController
      @orderitem = @order.orderitems.build(:item_id => product.id, :title => product.title, :description => product.description, :quantity => quantity, :cost_price=> product.cost_price)
      @orderitem.save
    end
+   
+   redirect_to '/orderConfirmed/'
    
    @orders = Order.all
    @orderitems = Orderitem.where(order_id: Order.last)

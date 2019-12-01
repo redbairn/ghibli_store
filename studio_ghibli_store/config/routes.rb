@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
+  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }   do 
+    resources :orders 
+  end
   
     root 'static_pages#home'
     get '/home' => 'static_pages#home'
@@ -24,9 +26,13 @@ Rails.application.routes.draw do
     get '/cart/remove/:id' => 'cart#remove'
     get '/cart/reduce/:id' => 'cart#reduce'
     get '/cart/increase/:id' => 'cart#increase'
+    get '/checkout' => 'cart#createOrder'
     resources :logins, only: [:show]
-    resources :order_items, :except => [:delete]
-    resources :orders, :except => [:edit,:delete]
+    resources :orders, :except => [:edit,:delete] do
+      resources:orderitems, :except => [:delete]
+    end
+    
+    
     resources :roles
     resources :products
     get '/product/:id', to: 'products#index'
