@@ -94,7 +94,7 @@ class CartController < ApplicationController
    redirect_to '/orderConfirmed/'
    
    @orders = Order.all
-   @orderitems = Orderitem.where(order_id: Order.last)
+   @orderitems = Order_item.where(order_id: Order.last)
    
    session[:cart] = nil # Hidden for development so I can refresh the page
    
