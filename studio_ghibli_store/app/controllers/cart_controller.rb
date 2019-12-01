@@ -90,14 +90,16 @@ before_action :authenticate_user!
    end
    
     @orders = Order.all
-   
-   redirect_to '/orderConfirmed/'
-   
-   # Only choose order items fromt he last order
-   @orderitems = Order_item.where(order_id: Order.last)
+    # Only choose order items fromt he last order
+    @orderitems = Order_item.where(order_id: Order.last)
    
    session[:cart] = nil # Hidden for development so I can refresh the page
    
   end
+  
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def order_params
+      params.require(:order).permit(:order_date, :user_id, :status)
+    end
   
 end

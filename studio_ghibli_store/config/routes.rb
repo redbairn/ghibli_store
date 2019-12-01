@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     get '/cart/increase/:id' => 'cart#increase'
     get '/checkout' => 'cart#createOrder'
     resources :logins, only: [:show]
-    resources :orders, :except => [:edit,:delete] do
-      resources:orderitems, :except => [:delete]
+    resources :orders do
+      resources:orderitems
     end
     
     
@@ -39,4 +39,7 @@ Rails.application.routes.draw do
     resources :user_logins
     resources :user_registrations, :except => [:edit,:delete]
     resources :users, :except => [:delete,:destroy]
+    
+    post '/search' => 'items#search'
+    get '/aboutSend/:id' => 'static_pages#aboutSend'
 end
