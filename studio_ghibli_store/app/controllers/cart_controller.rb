@@ -72,7 +72,6 @@ before_action :authenticate_user!
   end
   
   def createOrder
-    
    #@orderNo = Order.find(params[:id])
   
    # Step 1: Get the current user
@@ -90,12 +89,14 @@ before_action :authenticate_user!
      @orderitem.save
    end
    
+    @orders = Order.all
+   
    redirect_to '/orderConfirmed/'
    
-   #@orders = Order.all
-   #@orderitems = Order_item.where(order_id: Order.last)
+   # Only choose order items fromt he last order
+   @orderitems = Order_item.where(order_id: Order.last)
    
-   #session[:cart] = nil # Hidden for development so I can refresh the page
+   session[:cart] = nil # Hidden for development so I can refresh the page
    
   end
   

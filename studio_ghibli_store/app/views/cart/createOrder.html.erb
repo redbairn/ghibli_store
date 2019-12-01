@@ -1,6 +1,6 @@
 <div id="productsContainer">
-    <h1>Thank You</h1>
-    <p>You have just placed an order </p>
+    <h1>Thank You <br />
+    <p>You have just placed an order</h1>
 </div>
 
 
@@ -8,32 +8,26 @@
 
 <table id="customers">
     <tr>
-        
     <% @orders.limit(1).order(id: :desc).each do |order| %>
-    <td>order Reference: <%= order.id %></td>
-    <% @orderNum = order.id %>
+        <td>Order reference for the order you just placed: <%= order.id %></td>
+        <% @orderNum = order.id %>
     <% end %>
-    
     </tr>
 </table>
 
 <table id="customers">
     <% @total = 0 %>
     
-    <% @orderproducts.each do |id, quantity| %>
-    <tr>
-        <% product = Orderproduct.find_by_id(id) %>
-        <td><%= product.title %></td>
-        <td><%= product.quantity %></td>
-        <td><%= number_to_currency(product.cost_price, :unit => "€") %></td>
-        <td><%= number_to_currency(product.quantity * product.cost_price, :unit => "€") %></td>
-        
-    </tr>
-    
-    <% gTotal =(product.quantity * product.cost_price) %>
-    
-    <% @total += gTotal %>
-    
+    <% @orderitems.each do |id, quantity| %>
+        <tr>
+            <% product = Orderitem.find_by_id(id) %>
+            <td><%= product.title %></td>
+            <td><%= product.quantity %></td>
+            <td><%= number_to_currency(product.cost_price, :unit => "€") %></td>
+            <td><%= number_to_currency(product.quantity * product.cost_price, :unit => "€") %></td>
+        </tr>
+        <% gTotal =(product.quantity * product.cost_price) %>
+        <% @total += gTotal %>
     <% end %> 
     <tr>
     <td>Order Total: €<%= @total %> </td>
@@ -41,7 +35,7 @@
     <% shipping = 25 %>
     
     <% @overall = @total + shipping %>
-    <td>Shipping: €25</td>
+    <td>Shipping: &euro;25</td>
     <td>Overall Order Total: <%= number_to_currency(@overall, :unit => "€") %></td>
     
     </tr>
