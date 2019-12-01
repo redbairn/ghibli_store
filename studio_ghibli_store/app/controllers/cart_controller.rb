@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  
+before_action :authenticate_user!
    
   def add
         # get the id of the product
@@ -74,8 +74,7 @@ class CartController < ApplicationController
   def createOrder
     
    #@orderNo = Order.find(params[:id])
-    
-    
+  
    # Step 1: Get the current user
    @user = User.find(current_user.id)
   
@@ -93,10 +92,10 @@ class CartController < ApplicationController
    
    redirect_to '/orderConfirmed/'
    
-   @orders = Order.all
-   @orderitems = Order_item.where(order_id: Order.last)
+   #@orders = Order.all
+   #@orderitems = Order_item.where(order_id: Order.last)
    
-   session[:cart] = nil # Hidden for development so I can refresh the page
+   #session[:cart] = nil # Hidden for development so I can refresh the page
    
   end
   

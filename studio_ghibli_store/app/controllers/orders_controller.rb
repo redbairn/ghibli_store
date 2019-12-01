@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Orders.all render('index')
+
   end
 
   def show
+    @orderitems = Orderitem.all
+    @orderitems = Orderitem.where(order_id: params[:id])
   end
 
   def new
