@@ -60,4 +60,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
+  # Devise Installation
+  config.action_mailer.default_url_options = { host: 'f24a7592c84548eebc63d76a1d835039.vfs.cloud9.us-east-1.amazonaws.com', port: 3000 }
+  
 end

@@ -14,7 +14,7 @@
             <th>Decrease</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Sub Item</th>
+            <th>Item Total</th>
         </tr>
         <% @cart.each do |id, quantity| %> 
             <% product = Product.find_by_id(id) %>
@@ -36,11 +36,11 @@
                 </td>
                 
                 <td class="amounts">
-                    <a href="cart/increase/<%= product.id %>" ><i class='fas fas fa-arrow-alt-circle-up fa-3x'></i></a></td>
+                    <a href="cart/increase/<%= product.id %>" title="increase item"><i class='fas fas fa-arrow-alt-circle-up fa-3x'></i></a></td>
                 </td>
                 
                 <td class="amounts">
-                    <a href="cart/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down fa-3x'></i></a></td>
+                    <a href="cart/reduce/<%= product.id %>" title="decrease item"><i class='fas fa-arrow-alt-circle-down fa-3x'></i></a></td>
                 </td>
               
               
