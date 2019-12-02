@@ -85,7 +85,7 @@ before_action :authenticate_user!
    @cart = session[:cart] || {} # Get the content of the Cart
    @cart.each do | id, quantity |
      product = Product.find_by_id(id)
-     @orderitem = @order.orderitems.build(:item_id => product.id, :title => product.title, :description => product.description, :quantity => quantity, :cost_price=> product.cost_price)
+     @orderitem = @order.orderitems.build(:id => product.id, :title => product.title, :description => product.description, :qty => quantity, :cost_price=> product.cost_price)
      @orderitem.save
    end
    
