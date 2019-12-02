@@ -85,13 +85,13 @@ before_action :authenticate_user!
    @cart = session[:cart] || {} # Get the content of the Cart
    @cart.each do | id, quantity |
      product = Product.find_by_id(id)
-     @orderitem = @order.orderitems.build(:id => product.id, :title => product.title, :description => product.description, :qty => quantity, :cost_price=> product.cost_price)
+     @orderitem = @order.orderitems.build(:id => product.id, :title => product.title, :description => product.description, :quantity => quantity, :cost_price=> product.cost_price)
      @orderitem.save
    end
    
     @orders = Order.all
     # Only choose order items fromt he last order
-    @orderitems = Order_item.where(order_id: Order.last)
+    @orderitems = Orderitem.where(order_id: Order.last)
    
    session[:cart] = nil # Hidden for development so I can refresh the page
    

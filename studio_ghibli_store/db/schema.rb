@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_163024) do
+ActiveRecord::Schema.define(version: 2019_12_01_152207) do
 
   create_table "addresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -39,28 +39,29 @@ ActiveRecord::Schema.define(version: 2019_12_02_163024) do
     t.string "logged_out_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_logins_on_user_id"
   end
 
   create_table "orderitems", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
-    t.bigint "qty"
+    t.string "title"
+    t.text "description"
+    t.bigint "quantity"
+    t.decimal "cost_price", precision: 8, scale: 2
     t.decimal "sale_price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
-    t.text "description"
-    t.decimal "cost_price", precision: 10
     t.index ["order_id"], name: "index_orderitems_on_order_id"
     t.index ["product_id"], name: "index_orderitems_on_product_id"
   end
 
   create_table "orders", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
+    t.string "string"
+    t.datetime "order_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
-    t.datetime "order_date"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -124,9 +125,23 @@ ActiveRecord::Schema.define(version: 2019_12_02_163024) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
 end
