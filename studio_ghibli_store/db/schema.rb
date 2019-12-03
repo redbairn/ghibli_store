@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 2019_12_02_163024) do
 
   create_table "orders", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
+    t.datetime "order_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "order_date"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
