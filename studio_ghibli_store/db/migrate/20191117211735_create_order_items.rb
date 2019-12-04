@@ -3,8 +3,12 @@ class CreateOrderItems < ActiveRecord::Migration[5.0]
     create_table :orderitems do |t|
       t.integer "order_id"
       t.integer "product_id"
+      t.string "title"
+      t.text "description"
       t.bigint "qty", :limit => 10
       t.decimal "sale_price", :precision => 8, :scale => 2
+      t.decimal "cost_price", :precision => 8, :scale => 2
+      
       t.timestamps
     end
      add_index :orderitems, :order_id
