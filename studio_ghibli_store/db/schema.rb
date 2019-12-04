@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_000528) do
     t.integer "product_id"
     t.string "title"
     t.text "description"
-    t.bigint "qty"
+    t.bigint "quantity"
     t.decimal "sale_price", precision: 8, scale: 2
     t.decimal "cost_price", precision: 8, scale: 2
     t.datetime "created_at", null: false

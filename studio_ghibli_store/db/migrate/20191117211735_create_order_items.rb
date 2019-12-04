@@ -5,7 +5,7 @@ class CreateOrderItems < ActiveRecord::Migration[5.0]
       t.integer "product_id"
       t.string "title"
       t.text "description"
-      t.bigint "qty", :limit => 10
+      t.bigint "quantity", :limit => 10
       t.decimal "sale_price", :precision => 8, :scale => 2
       t.decimal "cost_price", :precision => 8, :scale => 2
       

@@ -91,7 +91,7 @@ before_action :authenticate_user!
    
     @orders = Order.all
     # Only choose order items fromt he last order
-    @orderitems = Order_item.where(order_id: Order.last)
+    @orderitems = Orderitem.where(order_id: Order.last)
    
    session[:cart] = nil # Hidden for development so I can refresh the page
    
