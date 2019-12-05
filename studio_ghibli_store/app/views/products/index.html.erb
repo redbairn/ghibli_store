@@ -17,9 +17,11 @@
            <br />
             Colour: <%= product.colour %>
            <br />
-           CategoryID: <%= product.categories_id %>
+            Category: <%= product.category %>
           <br />
-           SupplierID: <%= product.supplier_id %></p>
+           <% if session[:login] == 1 %> 
+               SupplierID: <%= product.supplier_id %></p>
+           <% end %>
            <p>
                <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
                 <%= link_to 'Show', product, :class => "button", :role => "button" %>
