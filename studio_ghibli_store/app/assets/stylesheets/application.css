@@ -50,6 +50,10 @@ input[type=submit]:hover {
 }
 
 
+a.button:visited {
+    color: #FFF;
+}
+
 
 .headSec {
     background: url("/assets/Site/Studio-Ghibli-Header.jpg");

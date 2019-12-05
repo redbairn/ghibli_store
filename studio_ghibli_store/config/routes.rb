@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/cart/remove/:id' => 'cart#remove'
     get '/cart/reduce/:id' => 'cart#reduce'
     get '/cart/increase/:id' => 'cart#increase'
+    get 'category/:title' => 'static_pages#category'
     get '/checkout' => 'cart#createOrder'
     resources :logins, only: [:show]
     resources :orders do
