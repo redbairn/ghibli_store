@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @orderitems = Orderitem.all
+    @user = User.find(current_user.id)
    # @orderitems = Orderitem.where(order_id: params[:id])
   end
 

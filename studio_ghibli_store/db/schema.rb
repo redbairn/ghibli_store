@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 2019_12_01_000528) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "catalog_categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", limit: 50
+    t.text "description", limit: 255
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,11 +73,11 @@ ActiveRecord::Schema.define(version: 2019_12_01_000528) do
     t.string "colour"
     t.decimal "cost_price", precision: 7, scale: 2
     t.string "image_url"
-    t.integer "catalog_categories_id"
+    t.integer "categories_id"
     t.integer "supplier_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["catalog_categories_id"], name: "index_products_on_catalog_categories_id"
+    t.index ["categories_id"], name: "index_products_on_categories_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
