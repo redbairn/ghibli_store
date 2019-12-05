@@ -41,6 +41,6 @@ Rails.application.routes.draw do
     resources :user_registrations, :except => [:edit,:delete]
     resources :users, :except => [:delete,:destroy]
     
-    post '/search' => 'items#search'
+    post '/search' => 'products#search'
     get '/aboutSend/:id' => 'static_pages#aboutSend'
 end

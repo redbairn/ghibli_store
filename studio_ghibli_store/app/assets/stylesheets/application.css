@@ -53,7 +53,9 @@ input[type=submit]:hover {
 a.button:visited {
     color: #FFF;
 }
-
+#searchFrm{
+    margin-left:33%;
+}
 
 .headSec {
     background: url("/assets/Site/Studio-Ghibli-Header.jpg");

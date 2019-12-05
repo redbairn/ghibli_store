@@ -14,9 +14,15 @@
   <body>
     <%= render "layouts/header" %>
     
+    
     <div class="container">
       <div class="mainCont">
         <%= yield %>
+      </div>
+      <div id="first-column">
+          <div class="searchbox">
+            <%=render 'layouts/search'%>
+          </div>
       </div>
     </div>
     
@@ -24,3 +30,11 @@
     
   </body>
 </html>
+
+
+
+      
+
+      
+
+
