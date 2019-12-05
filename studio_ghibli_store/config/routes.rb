@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         get :delete
       end
     end
-    resources :catalog_categories
+    resources :categories
     get '/cart' => 'cart#index'
     get '/cart/clear' => 'cart#clear'
     get '/cart/:id' => 'cart#add'
