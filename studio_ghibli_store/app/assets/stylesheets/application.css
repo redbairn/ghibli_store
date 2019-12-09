@@ -92,6 +92,15 @@ a.button:visited {
      padding: 14px 16px;
      text-decoration: none;
 }
+#sub li {
+     color: #ffffff;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+}
+
+
+
 .mainCont {
      margin: auto;
      width:80%;

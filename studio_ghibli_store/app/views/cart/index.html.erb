@@ -55,14 +55,14 @@
              </tr>
          
          
-             <% @grand_total= total += quantity * product.cost_price %> 
+             
              
          
         <% end %>
         
         <tr>
-            
-            <%= render "cart/subtotal" %>
+        
+            SubTotal: <%= number_to_currency(@grand_total, :unit =>"€") %>
            
         </tr>
     </table>

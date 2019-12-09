@@ -1,6 +1,14 @@
 class StaticPagesController < ApplicationController
   def home
     @categories = Category.all
+    @cart = session[:cart]
+    total=0
+    @cart.each do | id, quantity |
+      product = Product.find_by_id(id)
+      @grand_total= total += quantity * product.cost_price 
+    end
+    
+    
   end
 
   def category
@@ -22,4 +30,5 @@ class StaticPagesController < ApplicationController
 
   def cart
   end
+  
 end
