@@ -1,6 +1,7 @@
 class CartController < ApplicationController
 before_action :authenticate_user!
-   
+before_action :subtotal
+
   def add
         # get the id of the product
         id = params[:id]
@@ -17,7 +18,6 @@ before_action :authenticate_user!
         
         if cart[id] then
           cart[id] = cart[id] + 1
-                #@grand_total= total += quantity * product.cost_price 
         else
           cart[id] = 1
         end 
@@ -66,13 +66,22 @@ before_action :authenticate_user!
     # pass the cart to be displayed
     if session[:cart]  then
       @cart = session[:cart]
-      total=0
-      @cart.each do | id, quantity |
-       product = Product.find_by_id(id)
-       @grand_total= total += quantity * product.cost_price 
-      end
+      #total=0
+      #@cart.each do | id, quantity |
+      # product = Product.find_by_id(id)
+       #@grand_total= total += quantity * product.cost_price 
+      #end
     else
       @cart = {}
+    end
+  end
+  
+  def subtotal
+    @cart = session[:cart]
+    total=0
+    @cart.each do | id, quantity |
+      product = Product.find_by_id(id)
+      @grand_total= total += quantity * product.cost_price 
     end
   end
   

@@ -60,11 +60,7 @@
          
         <% end %>
         
-        <tr>
-        
-            SubTotal: <%= number_to_currency(@grand_total, :unit =>"€") %>
-           
-        </tr>
+        <tr>SubTotal: <%= number_to_currency(@grand_total, :unit =>"€") %></tr>
     </table>
         <a href="/products" class="button">Continue Shopping</a>
     <% if !@cart.empty? %>

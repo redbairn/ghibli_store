@@ -12,7 +12,7 @@
           <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'View Orders', orders_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to "Subtotal: ", "#" %><%= number_to_currency(@grand_total, :unit =>"€") %></li>
+          <li><%= link_to  number_to_currency(@grand_total, :unit =>"Subtotal: €"), "#"  %></li>
         <% else %>
           <li><%= link_to 'Register', new_user_registration_path %></li>
           <li><%= link_to 'Login', new_user_session_path %></li>
@@ -20,7 +20,6 @@
         
         
         <% if session[:login] == 1 %>    
-          <br />
           <li><%= link_to "Admin Logout",   logout_path %></li>
         <% else %>
           <li><%= link_to "Admin Login",   login_path %></li>

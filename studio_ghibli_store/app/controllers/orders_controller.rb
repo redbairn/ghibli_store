@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :subtotal
 
   # GET /orders
   # GET /orders.json
@@ -63,6 +64,15 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+  
+  def subtotal
+    @cart = session[:cart]
+    total=0
+    @cart.each do | id, quantity |
+      product = Product.find_by_id(id)
+      @grand_total= total += quantity * product.cost_price 
     end
   end
 

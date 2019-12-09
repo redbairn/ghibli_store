@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :subtotal
 
   # GET /products
   # GET /products.json
@@ -64,6 +65,15 @@ class ProductsController < ApplicationController
   def search
     st = "%#{params[:q]}%"
     @products = Product.where("title like ?", st)
+  end
+  
+  def subtotal
+    @cart = session[:cart]
+    total=0
+    @cart.each do | id, quantity |
+      product = Product.find_by_id(id)
+      @grand_total= total += quantity * product.cost_price 
+    end
   end
 
 

@@ -1,15 +1,9 @@
 class StaticPagesController < ApplicationController
-  def home
-    @categories = Category.all
-    @cart = session[:cart]
-    total=0
-    @cart.each do | id, quantity |
-      product = Product.find_by_id(id)
-      @grand_total= total += quantity * product.cost_price 
+  before_action :subtotal
+  
+    def home
+      @categories = Category.all
     end
-    
-    
-  end
 
   def category
     catName = params[:title]
@@ -17,6 +11,8 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+
+    
   end
 
   def help
@@ -30,5 +26,14 @@ class StaticPagesController < ApplicationController
 
   def cart
   end
+  
+    def subtotal
+      @cart = session[:cart]
+      total=0
+      @cart.each do | id, quantity |
+        product = Product.find_by_id(id)
+        @grand_total= total += quantity * product.cost_price 
+      end
+    end
   
 end
