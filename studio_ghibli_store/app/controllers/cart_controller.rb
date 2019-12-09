@@ -4,7 +4,6 @@ before_action :authenticate_user!
   def add
         # get the id of the product
         id = params[:id]
-        
         # if the cart exists use it, or if not make a new cart.
         if session[:cart] then
           cart = session[:cart]
@@ -18,6 +17,7 @@ before_action :authenticate_user!
         
         if cart[id] then
           cart[id] = cart[id] + 1
+                #@grand_total= total += quantity * product.cost_price 
         else
           cart[id] = 1
         end 
