@@ -70,9 +70,11 @@ class ProductsController < ApplicationController
   def subtotal
     @cart = session[:cart]
     total=0
+    @count_items = 0
     @cart.each do | id, quantity |
       product = Product.find_by_id(id)
       @grand_total= total += quantity * product.cost_price 
+      @count_items += quantity
     end
   end
 
