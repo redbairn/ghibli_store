@@ -66,25 +66,24 @@ before_action :subtotal
     # pass the cart to be displayed
     if session[:cart]  then
       @cart = session[:cart]
-      #total=0
-      #@cart.each do | id, quantity |
-      # product = Product.find_by_id(id)
-       #@grand_total= total += quantity * product.cost_price 
-      #end
     else
       @cart = {}
     end
   end
   
   def subtotal
-    @cart = session[:cart]
-    total=0
-    @count_items = 0
-    @cart.each do | id, quantity |
-      product = Product.find_by_id(id)
-      @grand_total= total += quantity * product.cost_price 
-      @count_items += quantity
-    end
+    if session[:cart]  then
+      @cart = session[:cart]
+      total=0
+      @count_items = 0
+      @cart.each do | id, quantity |
+        product = Product.find_by_id(id)
+        @grand_total= total += quantity * product.cost_price 
+        @count_items += quantity
+      end
+    else
+      @cart = {}
+    end 
   end
   
   def createOrder

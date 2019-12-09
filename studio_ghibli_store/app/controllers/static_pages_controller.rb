@@ -27,15 +27,19 @@ class StaticPagesController < ApplicationController
   def cart
   end
   
-    def subtotal
+  def subtotal
+    if session[:cart]  then
       @cart = session[:cart]
       total=0
       @count_items = 0
       @cart.each do | id, quantity |
         product = Product.find_by_id(id)
-        @grand_total= total += quantity * product.cost_price
+        @grand_total= total += quantity * product.cost_price 
         @count_items += quantity
       end
-    end
+    else
+      @cart = {}
+    end 
+  end
   
 end
