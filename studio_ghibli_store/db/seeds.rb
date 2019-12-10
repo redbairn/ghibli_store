@@ -55,14 +55,13 @@ p6.save
 p7 = Product.create(:title => 'Totoro Satchel / Sling bag', :description => 'Large enough to carry all of your essentials for your park day. This bag is beautifully made and sturdy enough to use everyday..', :colour => 'Mixed', :cost_price => 31.99, :image_url => 'Totoro-Satchel-bag.jpg', :categories_id => 1, :supplier_id => 1)
 p7.save
 
-#Roles
-p1 = Role.create(:title => 'System Admin')
-p1.save
-p2 = Role.create(:title => 'Admin')
-p2.save
-p3 = Role.create(:title => 'Normal User')
-p3.save
+# Roles
+['user', 'admin'].each do |role|
+  Role.find_or_create_by({title: role})
+end
 
 #Suppliers
 s1 = Supplier.create(:supplier_name => 'Tamaki Niime Co., Ltd', :addressLine1 => 'Nishiwaki-shi', :addressLine2 => 'Hyogo', :addressLine3 =>'Japan', :phone_number => 1123456789, :email => 'info@tamakiniime.com', :is_deleted => 0)
 s1.save
+
+

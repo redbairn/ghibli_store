@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-   enum role: [:user, :vip, :admin]
-  after_initialize :set_default_role, :if => :new_record?
+  before_create :set_default_role
+  # or 
+  # before_validation :set_default_role 
 
+  private
   def set_default_role
-    self.role ||= :user
+    self.role ||= Role.find_by_name('user')
   end
+  
+  
+  
   
   def index
   end
