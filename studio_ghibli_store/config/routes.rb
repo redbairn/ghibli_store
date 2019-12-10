@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }   do 
-    resources :orders 
+    resources :orders, except: [:edit, :destroy]
   end
   
     root 'static_pages#home'
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get 'category/:id' => 'static_pages#category'
     get '/checkout' => 'cart#createOrder'
     resources :logins, only: [:show]
-    resources :orders do
+    resources :orders, except: [:edit, :destroy] do
       resources:orderitems
     end
     

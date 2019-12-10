@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
     @orderitems = Orderitem.all
+    @user = User.find(current_user.id)
    #@orderitems = Orderitem.where(order_id: params[:id])
   end
 
@@ -15,8 +16,8 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @orderitems = Orderitem.all
-    #@user = User.find(current_user.id)
-   # @orderitems = Orderitem.where(order_id: params[:id])
+    @orderitems = Orderitem.where(order_id: params[:id])
+    @user = User.find(current_user.id)
   end
 
   # GET /orders/new
