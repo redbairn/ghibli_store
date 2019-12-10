@@ -16,6 +16,10 @@
             <%= path="(#{@count_items} items) #{number_to_currency(@grand_total, :unit =>"Subtotal: €")}" %>
             <li><%= link_to path, "#"  %></li>
           <% end %>
+            <% if current_user.admin? %>
+                <%= link_to 'New Product',  new_product_path, :class => "button", :role => "button" %>
+                <%= link_to 'New Category', new_category_path, :class =>"button", :role=>"button" %>
+            <% end %>
         <% else %>
           <li><%= link_to 'Register', new_user_registration_path %></li>
           <li><%= link_to 'Login', new_user_session_path %></li>
