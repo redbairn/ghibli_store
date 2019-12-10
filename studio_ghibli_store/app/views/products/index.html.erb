@@ -19,14 +19,14 @@
            <br />
             Category: <%= product.category %>
           <br />
-           <% if current_user.admin? %>
+           <% if current_user && current_user.admin? %>
                SupplierID: <%= product.supplier_id %></p>
            <% end %>
            <p>
                <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
                 <%= link_to 'Show', product, :class => "button", :role => "button" %>
 
-                <% if current_user.admin? %>
+                <% if current_user && current_user.admin? %>
                     <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
                     <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
                 <% end %>

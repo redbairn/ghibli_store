@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :subtotal
 
@@ -14,7 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @orderitems = Orderitem.all
-    @user = User.find(current_user.id)
+    #@user = User.find(current_user.id)
    # @orderitems = Orderitem.where(order_id: params[:id])
   end
 
