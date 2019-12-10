@@ -21,14 +21,5 @@
           <li><%= link_to 'Login', new_user_session_path %></li>
         <% end %>
         
-        
-        <% if session[:login] == 1 %>    
-          <li><%= link_to "Admin Logout",   logout_path %></li>
-        <% else %>
-          <li><%= link_to "Admin Login",   login_path %></li>
-        <% end %>
-
-        
-        
       </ul>
 </header>

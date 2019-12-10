@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
     #has_one :user_registrations
-    belongs_to :role
+    belongs_to :role, optional: true
     has_one :address
     #has_many :logins
     has_many :orders
     
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me)
+    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :admin, :role, :role_id)
   end
 end
