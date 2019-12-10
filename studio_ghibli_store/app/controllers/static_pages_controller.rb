@@ -6,13 +6,11 @@ class StaticPagesController < ApplicationController
     end
 
   def category
-    catName = params[:title]
-    @products = Product.where("category like ? ", catName)
+    catId = params[:id]
+    @products = Product.where("categories_id like ? ", catId)
   end
 
   def about
-
-    
   end
 
   def help
