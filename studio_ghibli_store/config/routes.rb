@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
   devise_for :admins
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }   do 
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }, controllers: { registrations: "registrations" }   do 
     resources :orders, except: [:edit, :destroy]
   end
   
+  #devise_for :static_pages
+  #devise_for :users, controllers: { registrations: "registrations" }
+  
     root 'static_pages#home'
+    get "/welcome" => "static_pages#welcome", :as => "user_root"
     get '/home' => 'static_pages#home'
     get '/about' => 'static_pages#about'
     get '/help' => 'static_pages#help' 
@@ -13,6 +18,7 @@ Rails.application.routes.draw do
     get '/contact' => 'static_pages#contact'  
     get '/login' => 'user_login#login' 
     get '/logout' => 'user_login#logout'
+  
   
 
     resources :addresses do

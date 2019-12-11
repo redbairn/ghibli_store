@@ -25,6 +25,10 @@ class StaticPagesController < ApplicationController
   def cart
   end
   
+  def welcome
+    #@user = User.find(current_user.id)
+  end
+  
   def subtotal
     if session[:cart]  then
       @cart = session[:cart]
