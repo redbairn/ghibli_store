@@ -4,9 +4,23 @@
 
 
 <div class="mainCont">
-    <h1 id="home_header">Welcome !</h1>
-    <p>Welcome buddy!</p>
+    
+    <h1 id="home_header">Welcome back <%= current_user.first_name %>!</h1>
+    <h2>Your last visit was at (<%= current_user.last_sign_in_at %>) </h2>
+
 <%= image_tag("studio-Ghibli-home-page.jpg", alt: "Welcome Logo for Studio Ghibli", :class => "welcomeIm") %>
     <br />
+        <h2>Your last purchase was:</h2>
+        
+        <table id="customers">
+ 
+        
+        <tr></tr>
+        </table>
+          
+        </div>
+    
+    
+    
     <br />
 </div>
