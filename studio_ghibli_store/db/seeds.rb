@@ -15,17 +15,17 @@ cc1 = Category.create(:title => 'Accessories', :description => 'Bags, Laptop Cov
 cc1.save
 cc2 = Category.create(:title => 'Clothing', :description => 'Here we have a large selection of Studio Ghibli clothing. Our t-shirts are very popular, but we have many products from baby clothes, up to studio ghibli womans clothes and leggings.', :image => 'clothingcategory.jpg')
 cc2.save
-cc3 = Category.create(:title => 'Figures and Toys', :description => 'c', :image => 'toyscategory.jpg')
+cc3 = Category.create(:title => 'Figures and Toys', :description => 'Plush Soft Toys, figurines and more', :image => 'toyscategory.jpg')
 cc3.save
-cc4 = Category.create(:title => 'Jewellery', :description => 'd', :image => 'jewellerycategory.jpg')
+cc4 = Category.create(:title => 'Jewellery', :description => 'Rings, pins, earrings, etc', :image => 'jewellerycategory.jpg')
 cc4.save
-cc5 = Category.create(:title => 'Posters and Prints', :description => 'e', :image => 'posterscategory.jpg')
+cc5 = Category.create(:title => 'Posters and Prints', :description => 'Great prints that will bring your wall to life!', :image => 'posterscategory.jpg')
 cc5.save
-cc6 = Category.create(:title => 'Phone Cases', :description => 'f', :image => 'phonecasecategory.jpg')
+cc6 = Category.create(:title => 'Phone Cases', :description => 'Phone cases with designs from your favourite movies!', :image => 'phonecasecategory.jpg')
 cc6.save
-cc7 = Category.create(:title => 'Stationary', :description => 'g', :image => 'stationarycategory.jpg')
+cc7 = Category.create(:title => 'Stationary', :description => 'Office or school stationary', :image => 'stationarycategory.jpg')
 cc7.save
-cc8 = Category.create(:title => 'Other Gifts', :description => 'hh', :image => 'othercategory.jpg')
+cc8 = Category.create(:title => 'Other Gifts', :description => 'Anything that doesnt fit into the categories!', :image => 'othercategory.jpg')
 cc8.save
 
 #User
