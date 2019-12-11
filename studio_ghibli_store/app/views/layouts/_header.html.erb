@@ -6,10 +6,11 @@
         <li><%=link_to "About", about_path %></li>
         <li><%=link_to "Help", help_path %></li>
         <li><%=link_to "Contact", contact_path %></li>
-        <li><%=link_to "Cart", cart_path %></li>
+        
         
         <% if user_signed_in? %>
-          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <li><%=link_to "Cart", cart_path %></li>
+          <li><%=link_to "Account", edit_user_registration_path %></li>
           <li><%= link_to 'View Orders', orders_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
           <% if @cart && !@cart.empty? %>
