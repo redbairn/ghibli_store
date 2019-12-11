@@ -17,10 +17,10 @@
            <br />
             Colour: <%= product.colour %>
            <br />
-            Category: <%= product.category %>
-          <br />
            <% if current_user && current_user.admin? %>
-               SupplierID: <%= product.supplier_id %></p>
+            Category: <%= product.category  %>
+          <br />
+            SupplierID: <%= product.supplier_id %></p>
            <% end %>
            <p>
                <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
