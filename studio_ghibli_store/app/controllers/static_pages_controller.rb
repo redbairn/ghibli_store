@@ -12,6 +12,11 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+  
+  def aboutSend
+    @order = Order.find(params[:id])
+    @order.update_attribute(:status, "Paid with Paypal")
+  end
 
   def help
   end
